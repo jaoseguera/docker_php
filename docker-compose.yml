@@ -1,0 +1,13 @@
+services:
+  web:
+    image: nguyenmanhluu/yii1:1.0
+    container_name: docker_thinui
+    ports:
+      - "80:80"
+    build:
+      context: .
+      dockerfile: dockerfile
+      target: dev
+    volumes:
+      - ./local.thinui.com/:/var/www/html
+    command: /bin/sh -c "service apache2 start && while sleep 1000; do :; done"

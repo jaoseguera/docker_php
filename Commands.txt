@@ -1,0 +1,4 @@
+docker build -t local-thinui:1.0 .
+docker run -d -p 80:80 local-thinui:1.0
+
+docker-compose -f docker-compose.yml up
