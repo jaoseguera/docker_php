@@ -9,8 +9,9 @@ services:
       dockerfile: dockerfile
       target: dev
     volumes:
-      - ./local.thinui.com/:/var/www/thinui/html
-    command: /bin/sh -c "service apache2 start && while sleep 1000; do :; done"
+      - ./local.thinui.com/:/var/www/thinui.com
+      - ./backups/thinui.com.conf:/etc/apache2/sites-available/thinui.com.conf
+    command: /bin/sh -c "a2ensite thinui.com.conf && service apache2 start && while sleep 1000; do :; done && a2dissite 000-default.conf && service apache2 reload"
   couchdb:
     image: couchdb
     restart: always

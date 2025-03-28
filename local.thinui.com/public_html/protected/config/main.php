@@ -139,8 +139,9 @@ return array(
         ),
 		'couchdb'=>array(
             'admin'=>'admin:admin123@',
-            'host'=>'localhost:5984',
-            /*'admin'=>'Emergys:thinui@',
+			'host'=>'localhost:5984',
+            /*'host'=>'localhost:5984',
+            'admin'=>'Emergys:thinui@',
             'host'=>'build.thinui.com:5984',*/
             'thinuidb'=>'thinui',
 			'companydb'=>'thinuicompanies',
