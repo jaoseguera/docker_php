@@ -1,5 +1,5 @@
 services:
-  web:
+  thinui:
     image: nguyenmanhluu/yii1:1.0
     container_name: docker_thinui
     ports:
@@ -9,5 +9,15 @@ services:
       dockerfile: dockerfile
       target: dev
     volumes:
-      - ./local.thinui.com/:/var/www/html
+      - ./local.thinui.com/:/var/www/thinui/html
     command: /bin/sh -c "service apache2 start && while sleep 1000; do :; done"
+  couchdb:
+    image: couchdb
+    restart: always
+    ports:
+      - "5984:5984"
+    environment:
+      - COUCHDB_USER=admin
+      - COUCHDB_PASSWORD=admin123
+    volumes:
+      - ./couchdb_data:/opt/couchdb/data
